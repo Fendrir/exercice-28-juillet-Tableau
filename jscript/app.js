@@ -1,26 +1,32 @@
+console.log("y'a quelqu'un ?");
 
-// Définition fonction createCols()
-function createCols( nbCols, numLg ) {
- var cols = "";
- var numCol = 0;
- for( var i = 0; i < nbCols; i++) {
-   numCol = i+1;
-   cols += "<td>Cel " + numLg + "." + numCol + "</td>";
- }
- 
- return cols;
+var line = 10;
+var col = 10;
 
-}// Définition fonction createRows()
-function createRows( nbRows, nbCols ) {
- var rows = "";
- for( var i = 0; i < nbRows; i++) {
-   rows += "<tr>" + createCols( nbCols, i +1 ) + "</tr>";
- }
- 
- return rows;
-}var html = "";//Initialisation de la table
+for (var i = 0; i < line; i++) {
 
-html = "<table><tr>"; //boucle de création des colonnes ( td )
-html += createRows( 10, 10 ); //Appel de votre fonction//Finalisation de la table
-html += "</tr></table>" //Affichage dans le div
-$("#container").html(html);
+	if (i%2 === 0){
+
+		$("#table").append('<tr class="line"></tr>');
+
+	} else {
+
+		$("#table").append('<tr class="underLine"></tr>');
+
+	}
+	
+}
+
+for (var i = 0; i < col; i++) {
+
+	if (i%2 === 0){
+		$('.line').append("<td>"+i+"</td>");
+		$(".underLine").append('<td class="black"></td>');
+
+	} else {
+		$('.underLine').append("<td></td>");
+		$(".line").append('<td class="black"></td>');
+
+	}
+	
+}
